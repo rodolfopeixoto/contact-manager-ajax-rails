@@ -66,3 +66,5 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'rails-ujs', '~> 0.1.0'
 gem 'rubocop', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem "paperclip", "~> 6.0.0"
+gem 'jasny-bootstrap-rails', '~> 3.1', '>= 3.1.3'
