@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contacts
+  resources :contacts, except: [:show]
   # get 'contacts/index', as: 'contacts'
   # get 'contacts/new', as: 'new_contact'
   # post 'contacts/create', as: 'create_contact'
