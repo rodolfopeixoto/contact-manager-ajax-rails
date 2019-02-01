@@ -3,11 +3,7 @@ class ContactsController < ApplicationController
 
   def index
     session[:selected_group_id] = params[:group_id]
-    if params[:group_id] && !params[:group_id].empty?
-      @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
-    else
-      @contacts = Contact.order(created_at: :desc).page(params[:page])
-    end
+      @contacts = Contact.by_group(params[:group_id]).search(params[:term]).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -29,7 +25,7 @@ class ContactsController < ApplicationController
   def update
     if @contact.update(contact_params)
       flash[:success] = 'Contact was successfully updated.'
-      redirect_to contacts_path
+      redirect_to contacts_path(previous_query_string)
     else
       render 'edit'
     end
@@ -39,6 +35,11 @@ class ContactsController < ApplicationController
     @contact.destroy
     flash[:success] = 'Contact was successfully deleted.'
     redirect_to contacts_path
+  end
+
+  def autocomplete
+    @contacts = Contact.search(params[:term]).order(created_at: :desc).page(params[:page])
+    render json: @contacts.map { |contact|  {id: contact.id, value: contact.name} }
   end
 
   private

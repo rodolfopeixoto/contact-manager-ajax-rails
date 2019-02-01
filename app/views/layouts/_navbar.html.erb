@@ -13,11 +13,14 @@
     <!-- /.navbar-header -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <div class="nav navbar-right navbar-btn">
+
+
         <%= link_to new_contact_path, class: 'btn btn-default' do %>
           <i class="glyphicon glyphicon-plus"></i>
            Add Contact
         <% end %>
       </div>
+      <%= render 'layouts/search_form' %>
     </div>
   </div>
 </nav>
