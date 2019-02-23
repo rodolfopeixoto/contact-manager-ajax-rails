@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap/dropdown
 //= require jasny-bootstrap.min
 //= require activestorage
 //= require turbolinks

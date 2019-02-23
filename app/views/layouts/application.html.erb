@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>ContactManager</title>
+    <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= csrf_meta_tags %>
+
   </head>
 
   <body>
@@ -20,10 +21,10 @@
           </div><!-- /.col-md-3 -->
 
           <div class="col-md-9">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= render 'layouts/messages' unless flash.empty? %>
-            <%= yield %>
+              <!-- <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p> -->
+              <%= render "layouts/messages" if !flash.empty? %>
+              <%= yield %>
           </div>
         </div>
       </div>
